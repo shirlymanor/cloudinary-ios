@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (4.5.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - Cloudinary (2.0.2):
+    - Alamofire (~> 4.1)
+  - GradientCircularProgress (3.8.0)
+  - QMServices (0.4.5):
+    - Bolts (>= 1.5.0)
+    - QuickBlox (>= 2.6.5)
+  - QuickBlox (2.9.2)
+
+DEPENDENCIES:
+  - Cloudinary
+  - GradientCircularProgress (from `https://github.com/keygx/GradientCircularProgress`)
+  - QMServices
+
+EXTERNAL SOURCES:
+  GradientCircularProgress:
+    :git: https://github.com/keygx/GradientCircularProgress
+
+CHECKOUT OPTIONS:
+  GradientCircularProgress:
+    :commit: 7cc950215e7a10acab241a86e79e5c0b0979ff55
+    :git: https://github.com/keygx/GradientCircularProgress
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Cloudinary: 2d7c889fc4329ebc59c7967ec277df882b2602d5
+  GradientCircularProgress: 153d9657d994349d0bb18afe35115747ed8217cb
+  QMServices: 617057b228eb5e41341e50216fc4af2fce3cfa46
+  QuickBlox: 67cafa5d7b237db7344c506ca5dc38365180cacb
+
+PODFILE CHECKSUM: 54798077d360097424c814201a81167ccbf4dfce
+
+COCOAPODS: 1.2.1
