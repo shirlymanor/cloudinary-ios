@@ -3,7 +3,7 @@
 1. Let's start by sign up to Cloudinary: <br>
 https://cloudinary.com/users/register/free <br>
 ![alt text](http://res.cloudinary.com/shirly/image/upload/f_auto,q_auto,w_200/signup "Sign Up") <br>
-** Tip ** Edit your cloud name (you will thank me later :)
+** **Tip** Edit your cloud name (you will thank me later :)
 
 2. Create an upload preset: <br>
 https://cloudinary.com/console/settings/upload <br>
