@@ -62,7 +62,8 @@ class PhotoTableViewController: UITableViewController {
 
         cell.nameLabel.text = photo.name
         let size: CGSize = cell.photoImageView.frame.size
-        let transformation = CLDTransformation().setWidth(Int(size.width)).setHeight(Int(size.height)).setCrop(.fit)
+        let transformation = CLDTransformation().setWidth(Int(size.width)).setHeight(Int(size.height)).setCrop(.fit).setDpr(Float(UIScreen.main.scale))
+       
         // Get the image from cache or download it
 
         if let publicId = photo.publicId {
