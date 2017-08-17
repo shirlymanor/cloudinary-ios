@@ -7,11 +7,11 @@ import Cloudinary
 
 extension AppDelegate {
     static var cloudName: String {
-        return "shirly"
+        return "your-cloud-name"
     }
 
 
     static var uploadPreset: String {
-        return "mypreset"
+        return "your-upload-preset"
     }
 }
