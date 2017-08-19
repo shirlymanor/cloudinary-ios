@@ -3,12 +3,24 @@
 //
 
 import UIKit
+import Cloudinary
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-   
+    static var cloudName: String {
+        return "your-cloud-name"
+    }
+    
+    
+    static var uploadPreset: String {
+        return "your-upload-preset"
+    }
+
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
