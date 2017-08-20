@@ -11,11 +11,10 @@ https://cloudinary.com/console/settings/upload <br>
 Choose your own upload preset name and choose unsigned for **Mode**
 
 3. Let go to the code and add our cloud name and our upload preset: <br>
-Open the file named: AppDelegate+config.swift.copy
+Open the file named: AppDelegate.swift
 
-![alt text](http://res.cloudinary.com/shirly/image/upload/q_auto/f_auto/w_500/v1502675284/config.png "configure your cloud name")
+![alt text](http://res.cloudinary.com/shirly/image/upload/q_auto,f_auto,w_500/AppDelegate.png "configure your cloud name")
 
-* Rename the file (delete the .copy) => `AppDelegate+config.swift`
 - update the file with your cloud name.
 + Update the file with your upload preset.
 
