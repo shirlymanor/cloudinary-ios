@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		299EC7BA1E83F679009C7C16 /* ProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299EC7B91E83F679009C7C16 /* ProgressStyle.swift */; };
 		2DBE5B249F90E49D2C46F7B8 /* PhotoTableViewController+message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE5ED5D4B5E9EC4DB681C4 /* PhotoTableViewController+message.swift */; };
+		51184AF31F4914E9003DBEE4 /* Podfile.copy in Resources */ = {isa = PBXBuildFile; fileRef = 51184AF21F4914E9003DBEE4 /* Podfile.copy */; };
 		936B4B821DB54E8F0090E3EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936B4B811DB54E8F0090E3EE /* AppDelegate.swift */; };
 		936B4B841DB54E8F0090E3EE /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936B4B831DB54E8F0090E3EE /* PhotoViewController.swift */; };
 		936B4B871DB54E8F0090E3EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936B4B851DB54E8F0090E3EE /* Main.storyboard */; };
@@ -33,7 +34,8 @@
 		299EC7B91E83F679009C7C16 /* ProgressStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressStyle.swift; sourceTree = "<group>"; };
 		2DBE5ED5D4B5E9EC4DB681C4 /* PhotoTableViewController+message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotoTableViewController+message.swift"; sourceTree = "<group>"; };
 		51184AF01F48CB80003DBEE4 /* PhotoAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		51184AF11F48CB80003DBEE4 /* PhotoAlbumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoAlbumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51184AF11F48CB80003DBEE4 /* PhotoAlbumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PhotoAlbumTests.xctest; path = "/Users/shirlymanor/dev/swift/PhotoAlbumApp-Stage1/build/Debug-iphoneos/PhotoAlbumTests.xctest"; sourceTree = "<absolute>"; };
+		51184AF21F4914E9003DBEE4 /* Podfile.copy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.copy; sourceTree = "<group>"; };
 		936B4B811DB54E8F0090E3EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		936B4B831DB54E8F0090E3EE /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		936B4B861DB54E8F0090E3EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,7 +86,6 @@
 			children = (
 				936B4B801DB54E8F0090E3EE /* PhotoAlbum */,
 				51184AF01F48CB80003DBEE4 /* PhotoAlbum.app */,
-				51184AF11F48CB80003DBEE4 /* PhotoAlbumTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +94,7 @@
 			children = (
 				936B4B811DB54E8F0090E3EE /* AppDelegate.swift */,
 				936B4B831DB54E8F0090E3EE /* PhotoViewController.swift */,
+				51184AF21F4914E9003DBEE4 /* Podfile.copy */,
 				51184AE91F48C33F003DBEE4 /* MoreFiles */,
 			);
 			path = PhotoAlbum;
@@ -183,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51184AF31F4914E9003DBEE4 /* Podfile.copy in Resources */,
 				936B4B8C1DB54E8F0090E3EE /* LaunchScreen.storyboard in Resources */,
 				936B4B891DB54E8F0090E3EE /* Assets.xcassets in Resources */,
 				936B4B871DB54E8F0090E3EE /* Main.storyboard in Resources */,
