@@ -6,7 +6,7 @@
 import UIKit
 import os.log
 import Cloudinary
-import QMServices
+
 
 class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -17,13 +17,13 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var middleImage: UIImageView!
     @IBOutlet weak var rightImage: UIImageView!
-
+    
     var publicId: String?
     var cld = CLDCloudinary(configuration: CLDConfiguration(cloudName: AppDelegate.cloudName, secure: true))
     var placeholder: UIImage?
     /*
-         This value is either passed by `PhotoTableViewController` in `prepare(for:sender:)`
-         or constructed as part of adding a new image.
+     This value is either passed by `PhotoTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new image.
      */
     var photo: Photo?
     
@@ -37,22 +37,33 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         if let photo = photo {
             let size: CGSize = self.photoImageView.frame.size
             let transformation = CLDTransformation().setWidth(Int(size.width)).setHeight(Int(size.height)).setCrop(.fit)
-            let leftSize = self.leftImage.frame.size
-            let leftTransformation = CLDTransformation().setWidth(Int(leftSize.width)).setHeight(Int(leftSize.height))
-                    .setCrop(.fit)
-                    .setRadius("max")
-                    .setEffect(.grayscale)
-            let middleSize = self.middleImage.frame.size
-            let middleTransformation = CLDTransformation().setWidth(Int(middleSize.width)).setHeight(Int(middleSize.height))
-                    .setCrop(.fit)
-                    .setOverlayWithLayer(CLDTextLayer().setFontFamily(fontFamily: "Arial").setFontSize(80).setText(text: "Cloudinary"))
-                    .setColor("white")
-                    .chain()
-                    .setAngle(20)
-            let rightSize = self.rightImage.frame.size
-            let rightTransformation = CLDTransformation().setWidth(Int(rightSize.width)).setHeight(Int(rightSize.height))
-                    .setCrop(.fit)
-                    .setBorder(10, color: "blue")
+            let frameWidthSize: Int = Int(self.rightImage.frame.size.width)
+            let leftTransformation = CLDTransformation().setWidth(frameWidthSize).setHeight(frameWidthSize)
+                .setCrop(.fit)
+                .setRadius("max")
+                .setEffect(.grayscale)
+                .setHeight(Int(size.height))
+                .setWidth(Int(size.width))
+                .setCrop(.fill)
+                .setGravity("auto")
+                .setDpr(2.0)
+            let middleTransformation = CLDTransformation()
+                .setOverlayWithLayer(
+                    CLDTextLayer().setText(text: "Cloudinary")
+                        .setFontFamily(fontFamily: "Arial")
+                        .setFontSize(180))
+                .setColor("white")
+                .chain()
+                .setAngle(20)
+                .setHeight(frameWidthSize)
+                .setWidth(frameWidthSize)
+                .setCrop(.limit)
+                .setDpr(2.0)
+            let rightTransformation = CLDTransformation().setWidth(frameWidthSize).setHeight(frameWidthSize)
+                .setCrop(.fill)
+                .setGravity(.faces)
+                .setDpr(2.0)
+                .setBorder(10, color: "blue")
             navigationItem.title = photo.name
             nameTextField.text = photo.name
             if let publicId = photo.publicId {
@@ -63,13 +74,14 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                 // pre-fetch transformations
                 let downloader = cld.createDownloader()
                 let url = cld.createUrl()
-                downloader.fetchImage(url.setTransformation(leftTransformation.setHeight(Float(size.height)).setWidth(Float(size.width))).generate(publicId)!)
-                downloader.fetchImage(url.setTransformation(middleTransformation.setHeight(Float(size.height)).setWidth(Float(size.width))).generate(publicId)!)
-                downloader.fetchImage(url.setTransformation(rightTransformation.setHeight(Float(size.height)).setWidth(Float(size.width))).generate(publicId)!)
+                print(url.setTransformation(rightTransformation).generate(publicId)!)
+                downloader.fetchImage(url.setTransformation(leftTransformation).generate(publicId)!)
+                downloader.fetchImage(url.setTransformation(middleTransformation).generate(publicId)!)
+                downloader.fetchImage(url.setTransformation(rightTransformation.setHeight(Int(size.height)).setWidth(Int(size.width))).generate(publicId)!)
             } else {
                 photoImageView.image = photo.image
             }
-
+            
         }
         
         // Enable the Save button only if the text field has a valid Photo name.
@@ -118,7 +130,7 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     //MARK: Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-
+        
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddPhotoMode = presentingViewController is UINavigationController
         
@@ -136,8 +148,8 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-
-
+        
+        
         // Configure the destination view controller only when the save button is pressed.
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
@@ -149,11 +161,11 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         let publicId = photo?.publicId
         // Set the image to be passed to PhotoTableViewController after the unwind segue.
         photo = Photo(name: name, image: image, publicId: publicId)
-
+        
     }
     
     //MARK: Actions
-
+    
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         
         // Hide the keyboard.
@@ -179,4 +191,3 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
 }
-
