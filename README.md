@@ -38,7 +38,6 @@ target 'PhotoAlbum' do
   # Pods for PhotoAlbum
   pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
   pod 'Cloudinary'
-  pod 'QMServices'
 
 
 end
